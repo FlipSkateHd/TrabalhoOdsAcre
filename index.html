@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ODS no Acre - Dados e Indicadores</title>
+  <style>
+    :root {
+      --acre-verde: #008542;
+      --acre-amarelo: #FFDD00;
+      --acre-azul: #0072CE;
+      --text-color: #333;
+      --light-bg: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--light-bg);
+    }
+
+    header {
+      background-color: var(--acre-verde);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      border-bottom: 5px solid var(--acre-amarelo);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero {
+      background-color: var(--acre-azul);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      margin-bottom: 1rem;
+    }
+
+    .ods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+
+    .ods-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .ods-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .ods-header {
+      padding: 1rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .ods-content {
+      padding: 1rem;
+    }
+
+    .ods-1 .ods-header {
+      background-color: #e5243b;
+    }
+
+    .ods-2 .ods-header {
+      background-color: #DDA63A;
+    }
+
+    .ods-3 .ods-header {
+      background-color: #4C9F38;
+    }
+
+    .ods-4 .ods-header {
+      background-color: #C5192D;
+    }
+
+    .ods-5 .ods-header {
+      background-color: #FF3A21;
+    }
+
+    .ods-6 .ods-header {
+      background-color: #26BDE2;
+    }
+
+    .ods-7 .ods-header {
+      background-color: #FCC30B;
+    }
+
+    .ods-8 .ods-header {
+      background-color: #A21942;
+    }
+
+    .ods-9 .ods-header {
+      background-color: #FD6925;
+    }
+
+    .ods-10 .ods-header {
+      background-color: #DD1367;
+    }
+
+    .ods-11 .ods-header {
+      background-color: #FD9D24;
+    }
+
+    .ods-12 .ods-header {
+      background-color: #BF8B2E;
+    }
+
+    .ods-13 .ods-header {
+      background-color: #3F7E44;
+    }
+
+    .ods-14 .ods-header {
+      background-color: #0A97D9;
+    }
+
+    .ods-15 .ods-header {
+      background-color: #56C02B;
+    }
+
+    .ods-16 .ods-header {
+      background-color: #00689D;
+    }
+
+    .ods-17 .ods-header {
+      background-color: #19486A;
+    }
+
+    .section-title {
+      padding: 2rem 0 1rem;
+      text-align: center;
+      color: var(--acre-verde);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background-color: var(--acre-amarelo);
+      margin: 0.5rem auto;
+    }
+
+    .indicators {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: var(--acre-azul);
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .sources {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+
+    .sources ul {
+      list-style-type: none;
+    }
+
+    .sources li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .sources li::before {
+      content: '•';
+      color: var(--acre-verde);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .sources a {
+      color: var(--acre-azul);
+      text-decoration: none;
+    }
+
+    .sources a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: var(--acre-verde);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      border-top: 5px solid var(--acre-amarelo);
+    }
+
+    @media (max-width: 768px) {
+      .ods-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Objetivos de Desenvolvimento Sustentável no Acre</h1>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Monitoramento dos ODS no estado do Acre</h2>
+      <p>Dados e indicadores relacionados aos 17 Objetivos de Desenvolvimento Sustentável da ONU</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">Os 17 ODS e os Dados do Acre</h2>
+
+    <div class="ods-grid">
+      <div class="ods-card ods-1">
+        <div class="ods-header">ODS 1: Erradicação da Pobreza</div>
+        <div class="ods-content">
+          <p>
+
+            <li> Pobreza: Cerca de 51,55% da população vive abaixo da linha da pobreza (2023).</li>
+
+            <li> pobreza: 13,2% da população em extrema pobreza (2023).</li>
+
+            <li>Rendimento médio domiciliar per capita: R$ 1.271,00 (2024).</li>
+          </p>
+
+        </div>
+      </div>
+
+      <div class="ods-card ods-2">
+        <div class="ods-header">ODS 2: Fome Zero e Agricultura Sustentável</div>
+        <div class="ods-content">
+          <p>A erradicação da fome é uma das metas avaliadas em estudos sobre sustentabilidade municipal no Acre,
+            especialmente em Rio Branco, que lidera o estado em desempenho ODS.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-3">
+        <div class="ods-header">ODS 3: Saúde e Bem-Estar</div>
+        <div class="ods-content">
+          <ul>
+            <li><strong>Taxa de mortalidade infantil:</strong> 16 óbitos por mil nascidos vivos (maior que a média
+              nacional de 13,3).</li>
+            <li><strong>Taxa de mortalidade materna:</strong> Entre 2018 e 2023, foram registrados 48 óbitos maternos,
+              com pico em 2021 (15 mortes). Em 2021, o Acre teve um aumento de 87% nos óbitos maternos em relação a
+              2014.</li>
+            <li><strong>Nascimentos:</strong> Em 2021, foram registrados 16.807 nascimentos, aumento de 4,5% em relação
+              ao ano anterior.</li>
+            <li><strong>Óbitos:</strong> Queda de 5,8% no número de mortes em 2021 em relação ao ano anterior.</li>
+            <li><strong>Desafios em saúde:</strong> Apenas cinco pediatras atuam na atenção primária do SUS no estado,
+              indicando carência de profissionais.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ods-card ods-4">
+        <div class="ods-header">ODS 4: Educação de Qualidade</div>
+        <div class="ods-content">
+          <p>
+            <li>Matrículas no ensino fundamental: 147.350 (2023).</li>
+            <li>Índice de Desenvolvimento Humano (IDH): 0,71 (2021).</li>
+          </p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-5">
+        <div class="ods-header">ODS 5: Igualdade de Gênero</div>
+        <div class="ods-content">
+          <p>A mortalidade materna reflete desigualdades de gênero e acesso à saúde, sendo um dos focos de políticas
+            públicas recentes.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-6">
+        <div class="ods-header">ODS 6: Água Potável e Saneamento</div>
+        <div class="ods-content">
+          <p>O acesso à água potável e saneamento é monitorado em avaliações de sustentabilidade municipal, embora dados
+            específicos para o Acre não estejam detalhados nos resultados.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-7">
+        <div class="ods-header">ODS 7: Energia Acessível e Limpa</div>
+        <div class="ods-content">
+          <p>Indicadores de consumo de energia per capita e investimentos em eficiência energética são monitorados
+            nacionalmente, mas não há dados específicos para o Acre nos resultados.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-8">
+        <div class="ods-header">ODS 8: Trabalho Decente e Crescimento Econômico</div>
+        <div class="ods-content">
+          <p>
+            <li>PIB do Acre em 2023: R$ 11,1 bilhões em receitas públicas (dados orçamentários).</li>
+
+            <li>Crescimento médio do PIB entre 2002-2010: 5,8% ao ano, superior à média nacional (3,9%).</li>
+          </p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-9">
+        <div class="ods-header">ODS 9: Indústria, Inovação e Infraestrutura</div>
+        <div class="ods-content">
+          <p>O governo do Acre investe no desenvolvimento industrial sustentável e manejo florestal para evitar
+            desmatamento.
+
+            Infraestrutura para agricultura familiar em expansão.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-10">
+        <div class="ods-header">ODS 10: Redução das Desigualdades</div>
+        <div class="ods-content">
+          <p>
+            <li>Os elevados índices de pobreza e desigualdade social são desafios centrais para o estado.</li>
+            <li>Índice de Gini e desigualdade: desigualdade maior que a média nacional e da Região Norte, com queda
+              lenta e
+              volátil</li>
+          </p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-11">
+        <div class="ods-header">ODS 11: Cidades e Comunidades Sustentáveis</div>
+        <div class="ods-content">
+          <p>
+            <li>Área territorial: 164.173,5 km² (2023).</li>
+            <li>População estimada: 880.631 habitantes (2024).</li>
+            <li>Densidade demográfica: 5,06 hab/km² (2022).</li>
+            <li>Plano estadual prevê ações para sustentabilidade urbana</li>
+            Rio Branco foi classificada como a cidade acreana com melhor desempenho em sustentabilidade urbana, segundo
+            o Instituto Cidades Sustentáveis.
+
+          </p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-12">
+        <div class="ods-header">ODS 12: Consumo e Produção Responsáveis</div>
+        <div class="ods-content">
+          <p>O Acre mantém 87% de suas florestas preservadas e reduz desmatamento, com queda de 28% na taxa de
+            desmatamento em 2023 em relação a 2022.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-13">
+        <div class="ods-header">ODS 13: Ação contra a Mudança Global do Clima</div>
+        <div class="ods-content">
+          <p>O Brasil, incluindo o Acre, monitora emissões de gases de efeito estufa e integra medidas climáticas nas
+            políticas públicas, conforme relatórios nacionais.
+            Acre é referência nacional em políticas de REDD+ e conservação ambiental, com redução de 58% no desmatamento
+            desde 2004.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-14">
+        <div class="ods-header">ODS 14: Vida na Água</div>
+        <div class="ods-content">
+          <p>Não há dados específicos sobre recursos hídricos ou biodiversidade aquática do Acre nos resultados
+            apresentados.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-15">
+        <div class="ods-header">ODS 15: Vida Terrestre</div>
+        <div class="ods-content">
+          <p>Não há dados específicos sobre biodiversidade terrestre do Acre nos resultados apresentados.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-16">
+        <div class="ods-header">ODS 16: Paz, Justiça e Instituições Eficazes</div>
+        <div class="ods-content">
+          <p>Indicadores de justiça e instituições são avaliados em rankings de sustentabilidade, mas sem dados
+            específicos detalhados para o Acre.</p>
+        </div>
+      </div>
+
+      <div class="ods-card ods-17">
+        <div class="ods-header">ODS 17: Parcerias e Meios de Implementação</div>
+        <div class="ods-content">
+          <p>O Acre participa de programas federais e estratégias nacionais para implementação dos ODS com mais de 500
+            convênios firmados entre 1999-2003 para desenvolvimento sustentável.Incluindo
+            parcerias para redução da mortalidade materna e infantil.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Indicadores Específicos do Acre</h2>
+
+    <div class="indicators">
+      <table>
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th>Dado mais recente disponível</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Taxa de natalidade</td>
+            <td>16.807 nascimentos em 2021</td>
+          </tr>
+          <tr>
+            <td>Taxa de mortalidade geral</td>
+            <td>Queda de 5,8% em 2021</td>
+          </tr>
+          <tr>
+            <td>Taxa de mortalidade infantil</td>
+            <td>16 por mil nascidos vivos</td>
+          </tr>
+          <tr>
+            <td>Taxa de mortalidade materna</td>
+            <td>48 óbitos (2018-2023); 15 em 2021</td>
+          </tr>
+          <tr>
+            <td>PIB – principais setores</td>
+            <td> Serviços: Crescimento de 4,1% em 2024, mantendo-se como o setor de maior peso na economia acreana.
+
+              Indústria: Avanço de 5,1% em 2024, impulsionada principalmente pela indústria extrativista e pela
+              construção civil.
+
+              Agropecuária: Crescimento de 4,2% em 2024, consolidando-se como o segundo setor mais importante para a
+              economia do estado, com destaque para a pecuária, mandioca, milho, café, banana e soja..</td>
+          </tr>
+          <tr>
+            <td>Saúde – leitos, médicos, cobertura</td>
+            <td>Apenas 5 pediatras na atenção primária do SUS; investimento federal para reforço em 2024</td>
+          </tr>
+          <tr>
+            <td>Trabalho – emprego, rendimento</td>
+            <td>Não detalhado nos resultados atuais. Dados oficiais podem ser consultados no IBGE/PNAD.</td>
+          </tr>
+          <tr>
+            <td>Educação – alfabetização, matrículas, IDEB</td>
+            <td>Rio Branco tem melhores indicadores do estado; dados detalhados disponíveis no INEP.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Fontes Oficiais e Relatórios para Consulta</h2>
+
+    <div class="sources">
+      <ul>
+        <li><a
+            href="https://g1.globo.com/ac/acre/noticia/2022/07/11/rio-branco-tem-melhor-desempenho-entre-as-22-cidades-do-acre-em-metas-sustentaveis-da-onu-aponta-estudo.ghtml"
+            target="_blank">G1 - Rio Branco tem melhor desempenho entre as 22 cidades do Acre em metas sustentáveis da
+            ONU, aponta estudo</a></li>
+        <li><a
+            href="https://brasil61.com/n/acre-mesmo-com-queda-em-20-anos-taxa-de-mortalidade-infantil-no-estado-ainda-e-maior-do-que-media-nacional-cmbr220045"
+            target="_blank">Brasil61 - Acre: mesmo com queda em 20 anos, taxa de mortalidade infantil no estado ainda é
+            maior do que média nacional</a></li>
+        <li><a href="https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/73923"
+            target="_blank">Brazilian Journals - Artigo sobre mortalidade materna</a></li>
+        <li><a
+            href="https://www.gov.br/saude/pt-br/assuntos/noticias-para-os-estados/acre/2024/setembro/acre-governo-federal-lanca-nova-estrategia-para-reduzir-mortalidade-materna"
+            target="_blank">Governo Federal - Acre: governo federal lança nova estratégia para reduzir mortalidade
+            materna</a></li>
+        <li><a
+            href="https://g1.globo.com/ac/acre/noticia/2023/02/22/acre-tem-aumento-nos-registros-de-nascimento-e-queda-no-numero-de-mortes-diz-ibge.ghtml"
+            target="_blank">G1 - Acre tem aumento nos registros de nascimento e queda no número de mortes, diz IBGE</a>
+        </li>
+        <li><a
+            href="https://www.gov.br/gestao/pt-br/assuntos/inovacao-governamental/consultoria-executiva/indicadores-de-sustentabilidade-socioambiental"
+            target="_blank">Governo Federal - Indicadores de sustentabilidade socioambiental</a></li>
+        <li><a
+            href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2024/06/dados-produzidos-pelo-mcti-sao-utilizados-para-monitorar-indicadores-de-ods-de-acao-climatica-no-brasil"
+            target="_blank">MCTI - Dados produzidos pelo MCTI são utilizados para monitorar indicadores de ODS de ação
+            climática no Brasil</a></li>
+        <li>IBGE - Estatísticas de Registro Civil e PNAD Contínua</li>
+        <li>Ministério da Saúde – DATASUS, IVIS, Relatórios de Mortalidade</li>
+        <li>Instituto Cidades Sustentáveis – Ranking dos ODS nos Municípios</li>
+        <li>Relatórios do Governo Federal sobre ODS e Agenda 2030</li>
+        <li>Plataforma ODS Brasil</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 - Pesquisa sobre os dados do Acre e os Objetivos de Desenvolvimento Sustentável, </p>
+      <p>Feito por Felipe N. Gomes e Eduardo B. Bittencourt</p>
+      <p>Os dados apresentados neste site são compilados de fontes oficiais e confiáveis.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
