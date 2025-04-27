@@ -5,252 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ODS no Acre - Dados e Indicadores</title>
-  <style>
-    :root {
-      --acre-verde: #008542;
-      --acre-amarelo: #FFDD00;
-      --acre-azul: #0072CE;
-      --text-color: #333;
-      --light-bg: #f5f5f5;
-    }
+<link rel="stylesheet" href="style.css">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      color: var(--text-color);
-      line-height: 1.6;
-      background-color: var(--light-bg);
-    }
-
-    header {
-      background-color: var(--acre-verde);
-      color: white;
-      padding: 1.5rem 0;
-      text-align: center;
-      border-bottom: 5px solid var(--acre-amarelo);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .hero {
-      background-color: var(--acre-azul);
-      color: white;
-      padding: 2rem 0;
-      text-align: center;
-    }
-
-    .hero h2 {
-      margin-bottom: 1rem;
-    }
-
-    .ods-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem 0;
-    }
-
-    .ods-card {
-      background-color: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .ods-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .ods-header {
-      padding: 1rem;
-      color: white;
-      font-weight: bold;
-    }
-
-    .ods-content {
-      padding: 1rem;
-    }
-
-    .ods-1 .ods-header {
-      background-color: #e5243b;
-    }
-
-    .ods-2 .ods-header {
-      background-color: #DDA63A;
-    }
-
-    .ods-3 .ods-header {
-      background-color: #4C9F38;
-    }
-
-    .ods-4 .ods-header {
-      background-color: #C5192D;
-    }
-
-    .ods-5 .ods-header {
-      background-color: #FF3A21;
-    }
-
-    .ods-6 .ods-header {
-      background-color: #26BDE2;
-    }
-
-    .ods-7 .ods-header {
-      background-color: #FCC30B;
-    }
-
-    .ods-8 .ods-header {
-      background-color: #A21942;
-    }
-
-    .ods-9 .ods-header {
-      background-color: #FD6925;
-    }
-
-    .ods-10 .ods-header {
-      background-color: #DD1367;
-    }
-
-    .ods-11 .ods-header {
-      background-color: #FD9D24;
-    }
-
-    .ods-12 .ods-header {
-      background-color: #BF8B2E;
-    }
-
-    .ods-13 .ods-header {
-      background-color: #3F7E44;
-    }
-
-    .ods-14 .ods-header {
-      background-color: #0A97D9;
-    }
-
-    .ods-15 .ods-header {
-      background-color: #56C02B;
-    }
-
-    .ods-16 .ods-header {
-      background-color: #00689D;
-    }
-
-    .ods-17 .ods-header {
-      background-color: #19486A;
-    }
-
-    .section-title {
-      padding: 2rem 0 1rem;
-      text-align: center;
-      color: var(--acre-verde);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 3px;
-      background-color: var(--acre-amarelo);
-      margin: 0.5rem auto;
-    }
-
-    .indicators {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin: 2rem 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-    }
-
-    th,
-    td {
-      padding: 0.75rem;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: var(--acre-azul);
-      color: white;
-    }
-
-    tr:hover {
-      background-color: #f5f5f5;
-    }
-
-    .sources {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin: 2rem 0;
-    }
-
-    .sources ul {
-      list-style-type: none;
-    }
-
-    .sources li {
-      margin-bottom: 0.5rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .sources li::before {
-      content: '•';
-      color: var(--acre-verde);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    .sources a {
-      color: var(--acre-azul);
-      text-decoration: none;
-    }
-
-    .sources a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: var(--acre-verde);
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 2rem;
-      border-top: 5px solid var(--acre-amarelo);
-    }
-
-    @media (max-width: 768px) {
-      .ods-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+ 
 </head>
 
 <body>
   <header>
     <div class="container">
       <h1>Objetivos de Desenvolvimento Sustentável no Acre</h1>
+      <p class="authors">Por Felipe Nogueira Gomes e Eduardo Banik Bittencourt - 3° Ano de Desenvolvimento de Sistemas</p>
     </div>
   </header>
 
@@ -482,11 +246,42 @@
           </tr>
           <tr>
             <td>Trabalho – emprego, rendimento</td>
-            <td>Não detalhado nos resultados atuais. Dados oficiais podem ser consultados no IBGE/PNAD.</td>
+            <td><ul>
+              <li>Sem rendimento: 17.384 domicílios</li>
+              <li>Até 1/2 salário mínimo: 12.012 domicílios</li>
+              <li>Mais de 1/2 a 1 salário mínimo: 26.644 domicílios</li>
+              <li>Mais de 1 a 2 salários mínimos: 45.589 domicílios</li>
+              <li>Mais de 2 a 5 salários mínimos: 54.817 domicílios</li>
+              <li>Mais de 5 a 10 salários mínimos: 21.558 domicílios</li>
+              <li>Mais de 10 a 20 salários mínimos: 8.833 domicílios</li>
+              <li>Mais de 20 salários mínimos: 3.807 domicílios</li>
+            </ul></td>
           </tr>
           <tr>
             <td>Educação – alfabetização, matrículas, IDEB</td>
-            <td>Rio Branco tem melhores indicadores do estado; dados detalhados disponíveis no INEP.</td>
+            <td><ul>
+              <li><strong>Ensino Fundamental</strong></li>
+              <ul>
+                <li><strong>Anos Iniciais:</strong> 5,8</li>
+                <ul>
+                  <li>Pública: 5,7</li>
+                  <ul>
+                    <li>Estadual: 6,1</li>
+                    <li>Privada: 7,1</li>
+                  </ul>
+                </ul>
+                <li><strong>Anos Finais:</strong> 4,8</li>
+                <ul>
+                  <li>Pública: 4,7</li>
+                  <li>Privada: 6,6</li>
+                </ul>
+              </ul>
+              <li><strong>Ensino Médio:</strong> 4,0</li>
+              <ul>
+                <li>Pública: 3,9 (Estadual)</li>
+                <li>Privada: 5,6</li>
+              </ul>
+            </ul></td>
           </tr>
         </tbody>
       </table>
