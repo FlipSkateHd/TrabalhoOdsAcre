@@ -34,6 +34,13 @@ header .container .authors {
     margin-top: 5px; /* Adiciona um pequeno espaço acima dos nomes */
   }
 
+
+ .logo {
+   display: inline-block;
+   vertical-align: middle;
+
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
